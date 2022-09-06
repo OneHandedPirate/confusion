@@ -4,6 +4,7 @@ import Menu from './MenuComponent';
 import DishDetail from "./DishdetailComponent";
 import { DISHES } from '../shared/dishes'
 
+
 class Main extends Component {
 
   constructor(props) {
@@ -17,20 +18,7 @@ class Main extends Component {
 
   onDishSelect(dishId) {
     this.setState({ selectedDish: dishId })
-}
-
-renderDish(dish) {
-    if (dish != null) {
-        return(
-            <DishDetail dish={this.state.selectedDish} />
-        );
-    }
-    else {
-        return(
-            <div></div>
-        );
-    }
-}
+  }
 
   render() {
     return (
@@ -41,20 +29,10 @@ renderDish(dish) {
           </div>   
         </Navbar>
         <Menu dishes={this.state.dishes}
-            onClick={(dishId) => this.onDishSelect(dishId)} />
-        <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]} />
+          onClick={(dishId) => this.onDishSelect(dishId)} />
+        <DishDetail 
+          dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish )[0]} />
       </div>
-    );
-
-    return (
-        <div className="container">
-            <div className="row">
-                {menu}
-            </div>
-            <div className="row">
-                {this.renderDish(this.state.selectedDish)}
-            </div>
-        </div>
     );
   }
 }
