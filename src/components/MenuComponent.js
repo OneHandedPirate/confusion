@@ -29,8 +29,6 @@ import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
             </div>
         );
     }
-   
-        
-      
+         
 
 export default Menu;
